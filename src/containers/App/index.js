@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import theme                    from 'configs/theme/config-theme'
 import HomeView                 from 'containers/HomeView'
+import UploadView               from 'containers/UploadView'
 import Header                   from './components/Header'
 import Footer                   from './components/Footer'
 
@@ -24,6 +25,7 @@ class App extends Component {
             <div className="app-shell">
               <Switch>
                 <Route path="/home" component={HomeView} />
+                <Route path="/upload" component={UploadView} />
                 <Redirect from="/" to="/home" />
               </Switch>
             </div>
