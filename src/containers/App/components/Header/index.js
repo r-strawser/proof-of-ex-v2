@@ -9,6 +9,7 @@ import Menu                 from '@material-ui/core/Menu'
 import MenuItem             from '@material-ui/core/MenuItem'
 import AccountCircle        from '@material-ui/icons/AccountCircle'
 import { appConfig }        from 'configs/config-main'
+import Navigation           from './components/Navigation'
 import { styles }           from './styles.scss'
 
 class Header extends Component {
@@ -75,6 +76,7 @@ class Header extends Component {
             <div className="dropdown">{menu}</div>
           </Toolbar>
         </AppBar>
+        <Navigation />
       </div>
     )
   }
