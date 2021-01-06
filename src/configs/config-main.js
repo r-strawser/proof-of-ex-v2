@@ -1,8 +1,8 @@
 /* Main app configs go here */
 
 export const appConfig = {
-  name: 'Smart Green Bonds',
-  shortName: 'SmartGreenBond',
-  description: 'Sustainability-linked green bonds on Ethereum',
+  name: 'Proof of Existance - v2',
+  shortName: 'PoE-v2',
+  description: 'Asset transfer on Ethereum',
   splashScreenBackground: '#ffffff'
 }
