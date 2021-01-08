@@ -1,4 +1,7 @@
 import React, { Component }   from 'react'
+import PropTypes              from 'prop-types'
+import { connect }            from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { MuiThemeProvider }   from '@material-ui/core/styles'
 import {
   HashRouter,
@@ -6,6 +9,7 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom'
+import * as providerActionCreators from '../../core/actions/actions-provider'
 import theme                    from 'configs/theme/config-theme'
 import HomeView                 from 'containers/HomeView'
 import AssetsView               from 'containers/AssetsView'
@@ -18,6 +22,12 @@ import Footer                   from './components/Footer'
 import './styles.scss' // global styles
 
 class App extends Component {
+  componentDidMount() {
+    const { actions } = this.props
+    actions.provider.setProvider()
+  }
+
+
   render() {
     return (
       <MuiThemeProvider theme={theme}>
@@ -42,4 +52,16 @@ class App extends Component {
   }
 }
 
-export default App
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      provider: bindActionCreators(providerActionCreators, dispatch)
+    }
+  }
+}
+
+App.prototype = {
+  actions: PropTypes.shape({}).isRequired
+}
+
+export default connect(null, mapDispatchToProps)(App)
