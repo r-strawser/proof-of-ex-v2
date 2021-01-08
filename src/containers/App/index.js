@@ -60,7 +60,7 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-App.prototype = {
+App.propTypes = {
   actions: PropTypes.shape({}).isRequired
 }
 
