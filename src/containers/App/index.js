@@ -16,6 +16,7 @@ import AssetsView               from 'containers/AssetsView'
 import PendingTransactionsView  from 'containers/PendingTransactionsView'
 import LatestUploadsView        from 'containers/LatestUploadsView'
 import UploadView               from 'containers/UploadView'
+import RegisterView             from 'containers/RegisterView'
 import Header                   from './components/Header'
 import Footer                   from './components/Footer'
 import MetaMaskNotification     from './components/MetaMaskNotification'
@@ -43,6 +44,7 @@ class App extends Component {
                 <Route path="/pending" component={PendingTransactionsView} />
                 <Route path="/latest" component={LatestUploadsView} />
                 <Route path="/upload" component={UploadView} />
+                <Route path="/register" component={RegisterView} />
                 <Redirect from="/" to="/home" />
               </Switch>
             </div>
