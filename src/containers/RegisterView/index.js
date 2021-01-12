@@ -5,16 +5,11 @@ import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as accountActionCreators from '../../core/actions/actions-account'
 import { requestAccountAccess }     from '../../core/libs/lib-metamask-helper'
+import Stepper                      from '../../components/Stepper'
 
 
 class RegisterView extends Component {
-    componentDidMount() {
-        const { actions } = this.props
 
-        requestAccountAccess((defaultAccount) => {
-            actions.account.setDefaultAccount(defaultAccount)
-        })
-    }
     render() {
         return (
             <div className={styles}>
