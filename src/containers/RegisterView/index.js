@@ -10,6 +10,9 @@ import Photo                        from './components/Photo'
 import { withRouter }               from 'react-router-dom'
 
 import CredentialsPanel             from './panels/CredentialsPanel'
+import GenerateHashPanel             from './panels/GenerateHashPanel'
+import RegisterAssetPanel             from './panels/RegisterAssetPanel'
+import SuccessPanel             from './panels/SuccessPanel'
 
 
 class RegisterView extends Component {
@@ -18,6 +21,27 @@ class RegisterView extends Component {
         const { location } = this.props
         return parseInt(location.search.substr(1).split('=')[1], 10)
     }
+
+
+    renderContent() {
+        const { panel } = this.getPanel()
+
+        switch(panel) {
+            case 1:
+                return <CredentialsPanel />
+            case 2:
+                return <GenerateHashPanel />
+            case 3:
+                return <RegisterAssetPanel />
+            case 4:
+                return <SuccessPanel />
+            default:
+                break
+        }
+        return null
+    }
+
+
 
     render() {
         const { asset } = this.props
@@ -36,7 +60,6 @@ class RegisterView extends Component {
                         ]}
                         />
                         <div id="registration-form">{this.renderContent()}</div>
-
                     </div>
                 </div>
             </div>
