@@ -6,16 +6,47 @@ import { bindActionCreators } from 'redux'
 import * as accountActionCreators from '../../core/actions/actions-account'
 import { requestAccountAccess }     from '../../core/libs/lib-metamask-helper'
 import Stepper                      from '../../components/Stepper'
+import Photo                        from './components/Photo'
+import { withRouter }               from 'react-router-dom'
+
+import CredentialsPanel             from './panels/CredentialsPanel'
 
 
 class RegisterView extends Component {
 
+    getPanel = () => {
+        const { location } = this.props
+        return parseInt(location.search.substr(1).split('=')[1], 10)
+    }
+
     render() {
+        const { asset } = this.props
+        const panel = this.getPanel()
+
         return (
             <div className={styles}>
-                This is the RegisterView!
+                <div id="register-view">
+                    <Photo asset={asset} />
+                    <div id="registration-form-container">
+                        <Stepper activeStep={panel - 1}
+                        steps={[
+                            'Enter Credentials',
+                            'Generate Unique Hash',
+                            'Register'
+                        ]}
+                        />
+                        <div id="registration-form">{this.renderContent()}</div>
+
+                    </div>
+                </div>
             </div>
         )
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        asset: state.asset
     }
 }
 
@@ -28,8 +59,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 RegisterView.propTypes = {
-    actions: PropTypes.shape({}).isRequired
+    actions: PropTypes.shape({}).isRequired,
+    asset: PropTypes.shape({}).isRequired,
+    location: PropTypes.shape({}).isRequired
 }
 
 
-export default connect(null, mapDispatchToProps)(RegisterView)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RegisterView))
