@@ -1,18 +1,18 @@
 import React, { Component }         from 'react'
 import { styles }                   from './styles.scss'
 import PropTypes                    from 'prop-types'
-import { connect }            from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as accountActionCreators from '../../core/actions/actions-account'
+import { connect }                  from 'react-redux'
+import { bindActionCreators }       from 'redux'
+import * as accountActionCreators   from '../../core/actions/actions-account'
 import { requestAccountAccess }     from '../../core/libs/lib-metamask-helper'
 import Stepper                      from '../../components/Stepper'
 import Photo                        from './components/Photo'
 import { withRouter }               from 'react-router-dom'
 
 import CredentialsPanel             from './panels/CredentialsPanel'
-import GenerateHashPanel             from './panels/GenerateHashPanel'
-import RegisterAssetPanel             from './panels/RegisterAssetPanel'
-import SuccessPanel             from './panels/SuccessPanel'
+import GenerateHashPanel            from './panels/GenerateHashPanel'
+import RegisterAssetPanel           from './panels/RegisterAssetPanel'
+import SuccessPanel                 from './panels/SuccessPanel'
 
 
 class RegisterView extends Component {
