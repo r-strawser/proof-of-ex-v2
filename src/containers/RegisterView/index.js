@@ -8,7 +8,6 @@ import { requestAccountAccess }     from '../../core/libs/lib-metamask-helper'
 import Stepper                      from '../../components/Stepper'
 import Photo                        from './components/Photo'
 import { withRouter }               from 'react-router-dom'
-import Controls                     from '../RegisterView/components/Controls'
 import CredentialsPanel             from './panels/CredentialsPanel'
 import GenerateHashPanel            from './panels/GenerateHashPanel'
 import RegisterAssetPanel           from './panels/RegisterAssetPanel'
@@ -24,7 +23,7 @@ class RegisterView extends Component {
 
 
     renderContent() {
-        const { panel } = this.getPanel()
+        const panel = this.getPanel()
 
         switch(panel) {
             case 1:
