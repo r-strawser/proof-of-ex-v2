@@ -1,7 +1,8 @@
 import constants from 'core/types'
 
 const initialState = {
-  id: null
+  email: '',
+  id: ''
 }
 
 export function accountReducer(state = initialState, action) {
