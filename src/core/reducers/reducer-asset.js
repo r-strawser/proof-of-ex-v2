@@ -15,7 +15,21 @@ export function assetReducer(state = initialState, action) {
         case constants.ADD_ASSET:
             return Object.assign({}, state, {
             stagedAsset: action.asset[0]
-    })
+        })
+
+        case constants.CHECK_ASSET:
+            return Object.assign({}, state, {
+            assetHash: action.assetHash,
+            alreadyExists: action.alreadyExists
+        })
+
+        case constants.CREATE_ASSET_HASH:
+            return Object.assign({}, state, {
+            assetHash: action.hash,
+            success: action.success,
+            transaction: action.transaction
+        })
+
         default:
             return state
     }
