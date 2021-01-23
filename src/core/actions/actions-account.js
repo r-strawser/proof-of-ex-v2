@@ -8,6 +8,13 @@ export function setEmail(email) {
   }
 }
 
+export function clearAccountEmail(email) {
+  return {
+    type: constants.CLEAR_ACCOUNT_EMAIL,
+    email
+  }
+}
+
 export function setDefaultAccount(defaultAccount) {
     return (dispatch, getState) => {
       const { web3Provider } = getState().provider

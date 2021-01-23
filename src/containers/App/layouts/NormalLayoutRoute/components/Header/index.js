@@ -59,7 +59,7 @@ class Header extends Component {
           onClose={this.close}
         >
           <MenuItem data-link="account" onClick={this.goTo}>{id}</MenuItem>
-          <MenuItem data-link="settings" onClick={this.goTo}>Menu Option 2</MenuItem>
+          <MenuItem data-link="settings" onClick={this.goTo}>{email}</MenuItem>
         </Menu>
       </div>
     )

@@ -17,6 +17,12 @@ export function accountReducer(state = initialState, action) {
         email: action.email
       })
 
+      case constants.CLEAR_ACCOUNT_EMAIL:
+      return Object.assign({}, state, {
+        email: '',
+        id: ''
+      })
+
       default:
           return state
   }
